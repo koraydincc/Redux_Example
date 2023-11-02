@@ -1,16 +1,23 @@
-import React from 'react'
+import React from 'react';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { useSelector } from 'react-redux';
 
 function Navbar() {
+  const { quantity } = useSelector((store) => store.cart);
+  //   console.log(useSelector((store) => store.cart));
   return (
     <nav>
-        <div>
-            <h3>Teknoloji Uygulaması</h3>
-            <div>
-                <p>0</p>
-            </div>
+      <div className="navbar">
+        <h3>Store</h3>
+        <div className="navDiv">
+          <div className="itemsDiv">
+            <p>{quantity}</p>
+          </div>
+          <ShoppingBasketIcon className="itemsIcon" />
         </div>
+      </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
